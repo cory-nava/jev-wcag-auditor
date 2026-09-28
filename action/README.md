@@ -36,8 +36,8 @@ jobs:
 ```
 
 No API key is needed for the default `jev-mode: "off"` (axe-core only).
-The action installs Node 22, your repo's locked dependencies (`npm ci`),
-and Playwright's Chromium itself.
+The action installs Node 22, the auditor's own locked dependencies (`npm ci`
+in the action's checkout, not your repo), and Playwright's Chromium itself.
 
 ## With Jev judgement calls
 
