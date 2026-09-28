@@ -48,6 +48,11 @@ inputs:
   github-token:
     description: "Token used to post the PR comment."
     default: ${{ github.token }}
+  summary:
+    description: >-
+      Write the results to the job's step summary. Turn off when a matrix
+      runs many audits and you publish your own combined summary.
+    default: "true"
   upload-artifact:
     description: "Upload the full machine-readable report JSON as a workflow artifact."
     default: "true"
@@ -105,6 +110,7 @@ runs:
         TYPESAFE_API_KEY: ${{ inputs.typesafe-api-key }}
         AUDIT_FAIL_BELOW: ${{ inputs.fail-below }}
         AUDIT_COMMENT: ${{ inputs.comment }}
+        AUDIT_SUMMARY: ${{ inputs.summary }}
         GITHUB_TOKEN: ${{ inputs.github-token }}
       # Bundle with esbuild (keep-names off): tsx/esbuild's keepNames helper
       # (__name) breaks Playwright's serialization of the page-evaluate

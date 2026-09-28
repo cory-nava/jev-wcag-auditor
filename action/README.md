@@ -68,6 +68,7 @@ sensory-only instructions, page language) — the same six questions as the app.
 | `fail-below` | `"0"` | Fail the step if the score (0–100) is below this. `0` disables. |
 | `comment` | `"true"` | Post/update a PR comment with results (`pull_request` events only). The comment is updated in place, one per PR. |
 | `github-token` | `${{ github.token }}` | Token for the PR comment. |
+| `summary` | `"true"` | Write results to the step summary. Set `"false"` when a matrix runs many audits and you publish a combined summary. |
 | `upload-artifact` | `"true"` | Upload `wcag-audit-report.json` as a workflow artifact. |
 
 ## Outputs
