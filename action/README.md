@@ -21,7 +21,7 @@ on: [pull_request]
 
 jobs:
   audit:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
@@ -38,6 +38,11 @@ jobs:
 No API key is needed for the default `jev-mode: "off"` (axe-core only).
 The action installs Node 22, the auditor's own locked dependencies (`npm ci`
 in the action's checkout, not your repo), and Playwright's Chromium itself.
+
+Run it on a pinned Ubuntu runner such as `ubuntu-24.04` rather than
+`ubuntu-latest`. `playwright install --with-deps` installs Chromium's system
+packages with apt and only supports specific Ubuntu releases, so a new
+`ubuntu-latest` image can break the install before Playwright catches up.
 
 ## With Jev judgement calls
 
