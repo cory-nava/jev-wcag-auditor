@@ -55,16 +55,22 @@ inputs:
 outputs:
   score:
     description: "Pass-rate score, 0–100."
+    value: ${{ steps.audit.outputs.score }}
   pass:
     description: "Number of criteria that passed."
+    value: ${{ steps.audit.outputs.pass }}
   fail:
     description: "Number of criteria that failed."
+    value: ${{ steps.audit.outputs.fail }}
   needs-review:
     description: "Number of criteria needing human review."
+    value: ${{ steps.audit.outputs.needs-review }}
   criteria-total:
     description: "Total criteria checked."
+    value: ${{ steps.audit.outputs.criteria-total }}
   report-path:
     description: "Path to the full wcag-audit-report.json in the workspace."
+    value: ${{ steps.audit.outputs.report-path }}
 
 runs:
   using: "composite"
